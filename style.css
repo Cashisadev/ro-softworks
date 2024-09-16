@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    background-size: cover;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.container .card {
+    position: relative;
+    width: 870px;
+    height: 443px;
+    background: rgba(0, 0, 0, 0.25);
+    background-image: url(imageBefore.png);
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-top: 500px; /* Move the card down by adjusting this value */
+}
+
+.container .card::before {
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    background: radial-gradient(var(--clr), transparent, transparent);
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    transition: 0.5s, top 0s, left 0s;
+}
+
+.container .card:hover::before {
+    opacity: 1;
+}
+
+.container .card::after {
+    content: '';
+    position: absolute;
+    border-radius: px;
+    inset: 0px;
+    background-image: url(imageAfter.png)
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 70px;
+}
+
+.btn {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    background: #030101;
+    width: 160px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition-duration: 0.3s;
+    transition-property: box-shadow, transform;
+    margin-bottom: 50px;
+}
+
+.btn:first-of-type {
+    background-color: #000000;
+}
+
+.btn:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adjust the gap between labels */
+    position: absolute; /* Use absolute positioning */
+    top: 200px; /* Adjust this value to move labels down */
+    width: 100%; /* Ensure labels are centered */
+    text-align: center;
+}
+
+.label {
+    font-family: 'Franklin Gothic gras', 'Arial Narrow', Arial, sans-serif;
+    font-size: 75px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+
+.small {
+    font-family: 'Franklin Gothic gras', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+
+.credits {
+    font-family: 'Franklin Gothic gras', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    color: #1f1f1f;
+    text-align: center;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgb(3, 3, 3), #111);
+}
+
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure snowflakes don't block other interactions */
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+    pointer-events: none; /* Ensure snowflakes don't block interactions */
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-100px); /* Start from just above the viewport */
+    }
+    100% {
+        transform: translateY(calc(100vh + 100px)); /* End just below the viewport */
+    }
+}
